@@ -22,7 +22,7 @@ namespace Uss_mäng
             sym = _sym;
         }
 
-        public void Draw(int x, int y, char sym)
+        public void Draw()
         {
             Console.SetCursorPosition(x, y);
             Console.Write(sym);
