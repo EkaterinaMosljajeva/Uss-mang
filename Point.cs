@@ -57,5 +57,11 @@ namespace Uss_mäng
         {
             return x + ", " + y + ", " + sym;
         }
+
+        public void Clear()
+        {
+            sym = ' ';
+            Draw();
+        }
     }
 }
