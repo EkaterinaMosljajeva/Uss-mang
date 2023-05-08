@@ -17,9 +17,9 @@ namespace Uss_mäng
 
         public Point(int _x, int _y, char _sym)
         {
-            x = _x;
-            y = _y;
-            sym = _sym;
+            this.x = _x;
+            this.y = _y;
+            this.sym = _sym;
         }
         public Point(Point p)
         {
@@ -47,6 +47,12 @@ namespace Uss_mäng
                 y= y+offset;
             }
         }
+
+        public bool IsHit(Point p)
+        {
+            return p.x == this.x && p.y == this.y; 
+        }
+
         public void Draw()
         {
             Console.SetCursorPosition(x, y);
