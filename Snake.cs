@@ -8,7 +8,7 @@ namespace Uss_mäng
 {
     class Snake : Figure
     {
-        Direction direction;
+        public Direction direction;
         public Snake(Point tail, int length,Direction _direction)
         {
             direction = _direction;
