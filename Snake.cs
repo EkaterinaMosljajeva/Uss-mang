@@ -9,7 +9,7 @@ namespace Uss_mäng
 {
     class Snake : Figure
     {
-        public Direction direction;
+        Direction direction;
         public Snake(Point tail, int length,Direction _direction)
         {
             direction = _direction;
@@ -19,7 +19,6 @@ namespace Uss_mäng
                 Point p = new Point(tail);
                 p.Move(i, direction);
                 pList.Add(p);
-
             }
         }
 
@@ -65,7 +64,7 @@ namespace Uss_mäng
                 direction = Direction.UP;
         }
 
-        internal bool Eat(Point food)
+        public bool Eat(Point food)
         {
             Point head = GetNextPoint();
             //if(head.x == food.x && head.y == food.y)
