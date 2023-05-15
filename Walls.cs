@@ -40,6 +40,7 @@ namespace Uss_mäng
         {
             foreach (var wall in wallList)
             {
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 wall.Draw(); 
             }
         }
