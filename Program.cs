@@ -6,6 +6,21 @@ namespace Uss_mäng
     {
         static void Main(string[] args)
         {
+            Console.Write("Sisestage oma nimi: ");
+            string n = Console.ReadLine();
+
+            while (n.Length < 3)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Nimi peab olema pikem kui 3 märki");
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.Write("Sisestage oma nimi: ");
+                n = Console.ReadLine();
+            }
+            Player player = new Player { Name = n, Score = 0 };
+
+            Console.Clear();
+
             Console.SetWindowSize(80, 25);
 
             //int score;
@@ -24,9 +39,14 @@ namespace Uss_mäng
             Point food = foodCreator.CreateFood();
             food.Draw();
 
+            FoodCreator poisonCreator = new FoodCreator(80, 25, '#');
+            Console.ForegroundColor = ConsoleColor.White;
+            Point poison = poisonCreator.CreateFood();
+            poison.Draw();
+
             while (true)
             {
-                if (walls.IsHit(snake) || snake.IsHitTail())
+                if (walls.IsHit(snake) || snake.IsHitTail() || snake.IsPoisoned(poison))
                 {
                     break;
                 }
@@ -36,7 +56,6 @@ namespace Uss_mäng
                     Console.ForegroundColor = ConsoleColor.Red;
                     food = foodCreator.CreateFood();
                     food.Draw();
-                    //score += 1;
                 }
                 else
                 {
@@ -68,6 +87,9 @@ namespace Uss_mäng
             yOffset++;
             WriteText("Autor: Ekaterina Mõsljajeva", xOffset, yOffset++);
             WriteText("===========================", xOffset, yOffset++);
+
+            StreamWriter to_file = new StreamWriter("Scores.txt", true);
+            to_file.WriteLine(scores);
         }
 
         static void WriteText(String text, int xOffset, int yOffset)

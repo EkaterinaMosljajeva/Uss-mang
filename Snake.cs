@@ -77,5 +77,18 @@ namespace Uss_mäng
             else
                 return false;
         }
+
+        public bool IsPoisoned(Point poison)
+        {
+            Point head = GetNextPoint();
+            if (head.IsHit(poison))
+            {
+                poison.sym = head.sym;
+                pList.Add(poison);
+                return true;
+            }
+            else
+                return false;
+        }
     }
 }
