@@ -11,12 +11,12 @@ namespace Uss_mäng
         private int score;
         private List<int> scoreList;
 
-        public ScoreMng()
-        {
-            score = 0;
-            scoreList = new List<int>();
-            ReadFile();
-        }
+        //public ScoreMng()
+        //{
+        //    score = 0;
+        //    scoreList = new List<int>();
+        //    ReadFile();
+        //}
 
         public void AddScore(int p)
         {

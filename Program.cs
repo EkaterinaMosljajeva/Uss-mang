@@ -9,11 +9,13 @@ namespace Uss_mäng
             Console.Write("Sisestage oma nimi: ");
             string n = Console.ReadLine();
 
+            List<Point> poisons = new List<Point>();
+
             while (n.Length < 3)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Nimi peab olema pikem kui 3 märki");
-                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.ForegroundColor = ConsoleColor.Gray;                                               
                 Console.Write("Sisestage oma nimi: ");
                 n = Console.ReadLine();
             }
@@ -44,19 +46,30 @@ namespace Uss_mäng
             Point poison = poisonCreator.CreateFood();
             poison.Draw();
 
+            poisons.Add(poison);
+
             while (true)
             {
-                if (walls.IsHit(snake) || snake.IsHitTail() || snake.IsPoisoned(poison))
+                if (walls.IsHit(snake) || snake.IsHitTail()) //|| snake.IsPoisoned(poison)
                 {
                     break;
                 }
-
-                if (snake.Eat(food))
+                else if (snake.IsPoisoned(poison))
+                {
+                    break;
+                }
+                else if (snake.Eat(food))
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     food = foodCreator.CreateFood();
                     food.Draw();
+
+                    Console.ForegroundColor = ConsoleColor.White;
+                    poisonCreator = new FoodCreator(80, 25, '#');
+                    poison = poisonCreator.CreateFood();
+                    poison.Draw();
                 }
+                
                 else
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
@@ -88,8 +101,8 @@ namespace Uss_mäng
             WriteText("Autor: Ekaterina Mõsljajeva", xOffset, yOffset++);
             WriteText("===========================", xOffset, yOffset++);
 
-            StreamWriter to_file = new StreamWriter("Scores.txt", true);
-            to_file.WriteLine(scores);
+            //StreamWriter to_file = new StreamWriter("Scores.txt", true);
+            //to_file.WriteLine(scores);
         }
 
         static void WriteText(String text, int xOffset, int yOffset)
