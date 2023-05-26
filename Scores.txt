@@ -1,6 +1,8 @@
 ﻿test1: 0
-test2: 0
-test3: 5aqsd: 1
-???: 0
-asd: 0
-asd: 0
+test2: 12
+5aqsd: 1
+anon: 33
+???: 6
+Alnima: 2
+Alnima: 9
+kkk: 9

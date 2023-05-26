@@ -155,11 +155,7 @@
 
         public static ConsoleColor ChooseSnakeColor()
         {
-            Console.WriteLine("Valige madu värvus:");
-            Console.WriteLine("1 - Lilla");
-            Console.WriteLine("2 - Kollane");
-            Console.WriteLine("3 - Punane");
-            Console.WriteLine("4 - Sinine");
+            Console.WriteLine("Valige madu värvus:\n1 - Lilla:\n2 - Kollane:\n3 - Punane:\n4 - Sinine:\n5 - Roheline");
 
             int varv = int.Parse(Console.ReadLine());
             ConsoleColor snakeColor;
@@ -177,6 +173,9 @@
                     break;
                 case 4:
                     snakeColor = ConsoleColor.Blue;
+                    break;
+                case 5:
+                    snakeColor = ConsoleColor.Green;
                     break;
                 default:
                     snakeColor = ConsoleColor.Green;

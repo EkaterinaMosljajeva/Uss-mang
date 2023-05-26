@@ -10,7 +10,6 @@ namespace Uss_mäng
 {
     class Sound
     {
-        //Устройство вывода звука
         private WaveOutEvent outputDevice;
         private AudioFileReader audioFile;
         private float outputVolume;
