@@ -64,7 +64,7 @@
                     }
                     break;
                 }
-                else if (snake.IsPoisoned(poison))
+                else if (snake.Eat(poison))
                 {
                     break;
                 }

@@ -77,38 +77,6 @@ namespace Uss_mäng
             
             else
                 return false;
-        }
-
-
-        //public bool IsPoisoned(Point poison, List<Point> poisons)
-        //{
-        //    Point head = GetNextPoint();
-        //    foreach (Point pois in poisons)
-        //    {
-        //        if (head.IsHit(pois))
-        //        {
-        //            return true;
-        //        }
-        //        else
-        //            return false;
-        //    }
-        //        return false;
-        //}
-
-        //private char GetSymbolAtPoint(Point point)
-        //{
-        //}
-
-        public bool IsPoisoned(Point nextPoint)
-        {
-            Point point = GetNextPoint();
-            //char nextSymbol = GetSymbolAtPoint(nextPoint);
-            if (Eat(nextPoint))// && nextPoint.sym == '#')
-                return true;
-            else
-                return false;
-        }
-
-       
+        }  
     }
 }
