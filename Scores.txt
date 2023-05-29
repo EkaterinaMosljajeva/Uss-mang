@@ -3,9 +3,5 @@ test2: 12
 5aqsd: 1
 anon: 33
 ???: 6
-Alnima: 2
 Alnima: 9
 kkk: 9
-???: 1
-asd: 1
-awe: 1

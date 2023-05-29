@@ -10,12 +10,12 @@
             Console.Write("Sisestage oma nimi: ");
             string n = Console.ReadLine();
 
-            List<Point> poisons = new List<Point>();
-
             Sound gameOverSound = new Sound("../../../sdoh.mp3");
             Sound BGSound = new Sound("../../../fon.mp3");
             BGSound.SetVolume(0.2f);
             BGSound.Play();
+
+            List<Point> poisons = new List<Point>();
 
             while (n.Length < 3)
             {
@@ -64,7 +64,7 @@
                     }
                     break;
                 }
-                else if (snake.Eat(poison))
+                else if (snake.Poisoned(poisons))
                 {
                     break;
                 }
@@ -81,6 +81,8 @@
                     poisonCreator = new FoodCreator(80, 25, '#');
                     poison = poisonCreator.CreateFood();
                     poison.Draw();
+
+                    poisons.Add(poison);
 
                     player.Score++;
 
@@ -155,10 +157,25 @@
 
         public static ConsoleColor ChooseSnakeColor()
         {
-            Console.WriteLine("Valige madu värvus:\n1 - Lilla:\n2 - Kollane:\n3 - Punane:\n4 - Sinine:\n5 - Roheline");
-
-            int varv = int.Parse(Console.ReadLine());
+            int varv;
             ConsoleColor snakeColor;
+
+            while (true)
+            {
+                Console.WriteLine("Valige madu värvus:\n1 - Lilla:\n2 - Kollane:\n3 - Punane:\n4 - Sinine:\n5 - Roheline");
+                varv = int.Parse(Console.ReadLine());
+
+                if (varv >= 1 && varv <= 5)
+                {
+                    break;
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Vigane sisend. Palun proovi uuesti.");
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+            }
 
             switch (varv)
             {

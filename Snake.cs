@@ -74,9 +74,22 @@ namespace Uss_mäng
                 pList.Add(food);
                 return true;
             }
-            
             else
                 return false;
-        }  
+        }
+
+        public bool Poisoned(List<Point> poisons)
+        {
+            Point head = GetNextPoint();
+
+            foreach (Point poison in poisons)
+            {
+                if (head.IsHit(poison))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }
